@@ -1,6 +1,12 @@
+require('dotenv').config();
+
 const express = require('express');
 
 const app = express();
+
+// Connection aux bdd
+require('./dao/sequelize/connection').connect_sequelize();
+
 
 // Injecter les routes externes
 const articleRoutes = require('./routes/articleRoutes');
