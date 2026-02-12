@@ -1,6 +1,6 @@
 const DAOFactory = require('../dao/daoFactory');
-const { v4: uuidv4 } = require('uuid');
 const { makeService } = require('./serviceHelper');
+const { v4: uuidv4 } = require('uuid');
 
 module.exports = {
     createArticle: async (req) => {
