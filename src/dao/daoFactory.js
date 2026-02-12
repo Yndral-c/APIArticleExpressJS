@@ -1,5 +1,5 @@
 module.exports = {
-    // Retourne un IDEAOArticle
+    // Retourne un IDAOArticle
 
     getDAOArticle: () => {
         if (process.env.BDD_MODE === "sequelize") {

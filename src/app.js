@@ -10,6 +10,7 @@ require('./dao/sequelize/connection').connect_sequelize();
 
 // Injecter les routes externes
 const articleRoutes = require('./routes/articleRoutes');
+app.use(express.json());
 app.use(articleRoutes);
 
 // Démarrer le serveur sur le port 3000
