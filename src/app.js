@@ -5,7 +5,12 @@ const express = require('express');
 const app = express();
 
 // Connection aux bdd
-require('./dao/sequelize/connection').connect_sequelize();
+if (process.env.BDD_MODE === "sequelize") {
+    require("./dao/sequelize/connection").connect_sequelize()
+}
+else if (process.env.BDD_MODE === "mongodb") {
+    require("./dao/mongoose/connection").connect_mongoose()
+}
 
 
 // Injecter les routes externes
