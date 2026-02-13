@@ -32,6 +32,16 @@ class DaoArticleMongoose extends IdaoArticle {
     async selectAll() {
         return await Article.find();
     };
+
+    async delete(article) {
+
+        const deletedArticle = await Article.findOneAndDelete(
+            { uid: article.uid }
+        );
+
+        return deletedArticle || null;
+    }
+
 }
 
 module.exports = DaoArticleMongoose;

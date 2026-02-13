@@ -20,4 +20,10 @@ router.get("/articles", async (req, res) => {
     return res.json(allArticles);
 })
 
+router.delete("/articles/delete", async (req, res) => {
+    const deletedArticle = await ArticleService.delete(req.body)
+
+    return res.json(deletedArticle);
+})
+
 module.exports = router;

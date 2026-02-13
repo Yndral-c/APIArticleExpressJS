@@ -20,7 +20,14 @@ class DaoArticleSequelize extends IdaoArticle {
             return null
         }
         return await modified.update(article);
+    };
 
+    async delete(article) {
+        const deleted = await Article.findByPk(article.uid);
+        if (!deleted) {
+            return null
+        }
+        return await deleted.destroy(article);
     }
 }
 

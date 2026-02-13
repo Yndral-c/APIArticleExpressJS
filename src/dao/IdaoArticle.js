@@ -3,6 +3,7 @@ class IdaoArticle {
     insert(article) {};
     selectAll() {};
     modified(article) {};
+    delete(article) {};
 }
 
 module.exports = IdaoArticle;
