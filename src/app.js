@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
-
+const cors = require('cors');
 const app = express();
 
 // Connection aux bdd
@@ -16,6 +16,8 @@ else if (process.env.BDD_MODE === "mongodb") {
 // Injecter les routes externes
 const articleRoutes = require('./routes/articleRoutes');
 app.use(express.json());
+// Autoriser le CORS (pour le TP)
+app.use(cors());
 app.use(articleRoutes);
 
 // Démarrer le serveur sur le port 3000

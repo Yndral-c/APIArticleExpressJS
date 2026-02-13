@@ -10,6 +10,18 @@ const Article = sequelize.define('Article', {
         type: DataTypes.STRING,
         allowNull: false,
     },
+    desc:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    auth: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    imgPath:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    }
 });
 
 module.exports = Article;
