@@ -34,6 +34,9 @@ module.exports = {
 
     delete: async (req) => {
         const deleteArticle = await DAOFactory.getDAOArticle().delete(req);
+        if (deleteArticle === null){
+            return makeService("721", "Impossible de trouver l'article que vous souhaitez supprimer", deleteArticle);
+        }
         return makeService("200", "Article supprimé avec succès !", deleteArticle);
     }
 
