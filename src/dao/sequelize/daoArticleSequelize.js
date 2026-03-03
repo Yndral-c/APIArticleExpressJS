@@ -15,7 +15,7 @@ class DaoArticleSequelize extends IdaoArticle {
     };
 
     async selectOneArticle(id) {
-        return await Article.findOne(id);
+        return await Article.findByPk(id);
     };
 
     async modified(article) {
@@ -27,11 +27,7 @@ class DaoArticleSequelize extends IdaoArticle {
     };
 
     async delete(article) {
-        const deleted = await Article.findByPk(article.uid);
-        if (!deleted) {
-            return null
-        }
-        return await deleted.destroy(article);
+        return await article.destroy();
     }
 }
 

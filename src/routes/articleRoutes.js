@@ -26,8 +26,8 @@ router.get("/articles/:id", async (req, res) => {
     return res.json(allArticles);
 })
 
-router.delete("/articles/:id", async (req, res) => {
-    const deletedArticle = await ArticleService.delete(req.body)
+router.delete("/articles/:uid", async (req, res) => {
+    const deletedArticle = await ArticleService.delete(req.params.uid)
 
     return res.json(deletedArticle);
 })

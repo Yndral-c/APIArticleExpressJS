@@ -33,11 +33,14 @@ module.exports = {
     },
 
     delete: async (req) => {
-        const deleteArticle = await DAOFactory.getDAOArticle().delete(req);
-        if (deleteArticle === null){
-            return makeService("721", "Impossible de trouver l'article que vous souhaitez supprimer", deleteArticle);
-        }
-        return makeService("200", "Article supprimé avec succès !", deleteArticle);
-    }
+        try {
+            let foundArticle = await DAOFactory.getDAOArticle().selectOneArticle(req);
+            await DAOFactory.getDAOArticle().delete(foundArticle);
 
+            return makeService("200", "Article supprimé avec succès !", foundArticle);
+        }
+        catch (error) {
+            return makeService("721", "Impossible de trouver l'article que vous souhaitez supprimer", error);
+        }
+    }
 };
