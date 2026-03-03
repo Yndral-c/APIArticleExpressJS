@@ -14,6 +14,9 @@ module.exports = {
 
     modifiedArticle: async (req) => {
         const changedArticle = await DAOFactory.getDAOArticle().modified(req);
+        if (changedArticle === null){
+            return makeService("721", "Article non trouvé", changedArticle)
+        }
 
         return makeService("200", "Article modifié avec succès", changedArticle);
     },
