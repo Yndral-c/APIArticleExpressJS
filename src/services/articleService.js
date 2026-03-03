@@ -24,6 +24,11 @@ module.exports = {
         return makeService("200", "Articles récupérés avec succès !", allArticles);
     },
 
+    getOneArticle: async (req) => {
+        const article = await DAOFactory.getDAOArticle().selectOneArticle(req);
+        return makeService("200", "Article récupéré avec succès !", article)
+    },
+
     delete: async (req) => {
         const deleteArticle = await DAOFactory.getDAOArticle().delete(req);
         return makeService("200", "Article supprimé avec succès !", deleteArticle);

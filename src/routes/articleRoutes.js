@@ -8,7 +8,7 @@ router.post("/articles/save", async (req, res) => {
     return res.json(serviceResponse);
 })
 
-router.post("/articles/modified", async (req, res) => {
+router.post("/articles/save", async (req, res) => {
     const serviceResponse = await ArticleService.modifiedArticle(req.body)
 
     return res.json(serviceResponse);
@@ -20,7 +20,13 @@ router.get("/articles", async (req, res) => {
     return res.json(allArticles);
 })
 
-router.delete("/articles/delete", async (req, res) => {
+router.get("/articles/:id", async (req, res) => {
+    const allArticles = await ArticleService.getOneArticle(req.body.id)
+
+    return res.json(allArticles);
+})
+
+router.delete("/articles/:id", async (req, res) => {
     const deletedArticle = await ArticleService.delete(req.body)
 
     return res.json(deletedArticle);

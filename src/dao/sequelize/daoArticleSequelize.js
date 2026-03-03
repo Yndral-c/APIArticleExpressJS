@@ -14,6 +14,10 @@ class DaoArticleSequelize extends IdaoArticle {
         return await Article.findAll();
     };
 
+    async selectOneArticle(id) {
+        return await Article.findOne(id);
+    };
+
     async modified(article) {
         const modified = await Article.findByPk(article.uid);
         if (!modified) {

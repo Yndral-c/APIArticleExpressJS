@@ -27,6 +27,10 @@ class DaoArticleMock extends IDAOArticle {
         return ARTICLES;
     }
 
+    async selectOneArticle(id){
+        return ARTICLES[id];
+    }
+
     async modified(article) {
 
         const index = ARTICLES.findIndex(a => a.id === article.id);

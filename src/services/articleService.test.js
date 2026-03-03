@@ -16,3 +16,8 @@ test('Tester update un article', async() => {
     const testResult = await ArticleService.modifiedArticle({id: "1", title: "Test Unitaire", desc:"Test Unitaire", auth:"author", imgPath: "imgPath"});
     expect(testResult.code).toBe("200")
 })
+
+test('Tester select un article', async() => {
+    const testResult = await ArticleService.getOneArticle("1");
+    expect(testResult.code).toBe("200")
+})
